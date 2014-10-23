@@ -1,0 +1,8 @@
+C:\Projects\PersianDate\UsageSamples\bin\Debug\UsageSamples.exe.config
+C:\Projects\PersianDate\UsageSamples\bin\Debug\UsageSamples.exe
+C:\Projects\PersianDate\UsageSamples\bin\Debug\UsageSamples.pdb
+C:\Projects\PersianDate\UsageSamples\bin\Debug\PersianDate.dll
+C:\Projects\PersianDate\UsageSamples\bin\Debug\PersianDate.pdb
+C:\Projects\PersianDate\UsageSamples\obj\Debug\UsageSamples.csprojResolveAssemblyReference.cache
+C:\Projects\PersianDate\UsageSamples\obj\Debug\UsageSamples.exe
+C:\Projects\PersianDate\UsageSamples\obj\Debug\UsageSamples.pdb

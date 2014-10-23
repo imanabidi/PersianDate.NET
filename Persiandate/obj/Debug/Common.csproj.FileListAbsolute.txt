@@ -1,0 +1,5 @@
+C:\Projects\BehinSaman\XPSReport\archive\Common\bin\Debug\PersianDate.NET.dll
+C:\Projects\BehinSaman\XPSReport\archive\Common\bin\Debug\PersianDate.NET.pdb
+C:\Projects\BehinSaman\XPSReport\archive\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Projects\BehinSaman\XPSReport\archive\Common\obj\Debug\PersianDate.NET.dll
+C:\Projects\BehinSaman\XPSReport\archive\Common\obj\Debug\PersianDate.NET.pdb
