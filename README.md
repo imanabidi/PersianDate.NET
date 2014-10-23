@@ -2,20 +2,20 @@ PersianDate.NET
 ===============
 
 when you usually use a jquery date picker (
+
   -http://hasheminezhad.com/datepicker 
   -https://github.com/behzadi/persianDatepicker
   -http://babakhani.github.io/PersianWebToolkit/datepicker.html
+  
   ) 
   in webpages or any other apps in UI side and want to:
   
 - convert your persian date string back to georgian and save it as a datetime in database you need some functions to do it for you.
-
-  
 - also you need this library when you want to show back the persian date back to UI.
   
 
-
 ////////////////////////Formats//////////////////
+
 Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now));//1393/08/01
 
 Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "d"));//93/08/01
