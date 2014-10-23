@@ -9,10 +9,11 @@ namespace UsageSamples
     {
         static void Main(string[] args)
         {
-            string persiandate = PersianDate.Persia.ConvertDate.ToFa(DateTime.Now);
+            string persiandate = PersianDate.ConvertDate.ToFa(DateTime.Now);
+            
             Console.WriteLine(persiandate);
 
-            Console.WriteLine(PersianDate.Persia.ConvertDate.ToEn(persiandate));
+            Console.WriteLine(PersianDate.ConvertDate.ToEn(persiandate));
 
             Console.WriteLine("press any key to continue");
             Console.ReadKey();

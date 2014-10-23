@@ -6,3 +6,8 @@ C:\Projects\PersianDate\Persiandate\bin\Debug\PersianDate.dll
 C:\Projects\PersianDate\Persiandate\bin\Debug\PersianDate.pdb
 C:\Projects\PersianDate\Persiandate\obj\Debug\PersianDate.dll
 C:\Projects\PersianDate\Persiandate\obj\Debug\PersianDate.pdb
+C:\Projects\PersianDate\GIT\PersianDate.NET\Persiandate\obj\Debug\PersianDate.csprojResolveAssemblyReference.cache
+C:\Projects\PersianDate\GIT\PersianDate.NET\Persiandate\obj\Debug\PersianDate.dll
+C:\Projects\PersianDate\GIT\PersianDate.NET\Persiandate\obj\Debug\PersianDate.pdb
+C:\Projects\PersianDate\GIT\PersianDate.NET\Persiandate\bin\Debug\PersianDate.dll
+C:\Projects\PersianDate\GIT\PersianDate.NET\Persiandate\bin\Debug\PersianDate.pdb
