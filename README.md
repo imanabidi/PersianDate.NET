@@ -16,27 +16,27 @@ when you usually use a jquery date picker (
 
 
 ////////////////////////Formats//////////////////
-it uses the following format for converting to  different styles of persian(Farsi or shamsi) date and times 
+Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now));//1393/08/01
 
-case "d": return sd.ShortDate;//93/07/27
-case "D": return sd.LongDate;//یکشنبه, 27 مهر 1393
-case "t": return sd.ShortTime;
-case "T": return sd.LongTime;
-case "f": //Long date + short time
-    return string.Format("{0} {1}", sd.LongDate, sd.ShortTime);
-case "F": // Long date + long time //یکشنبه, 27 مهر 1393 01:15:43
-    return string.Format("{0} {1}", sd.LongDate, sd.LongTime);
-case "g": //Short date + short time //93/07/27 01:14:24
-    return string.Format("{0} {1}", sd.ShortDate, sd.ShortTime);
-case "G": //Short date + long time
-    return string.Format("{0} {1}", sd.ShortDate, sd.LongTime);
-case "m":
-case "M":  //Month and day
-    return string.Format("{0} {1}", sd.MahName, sd.RoozEMah);
-case "y":
-case "Y": // year and month
-    return string.Format("{0} {1}", sd.Saal, sd.MahName);
-case "B": // year and month
-    return string.Format("{0}/{1:00}/{2:00}", sd.Saal, sd.Mah, sd.RoozEMah);
-default:
-    return sd.ShortDate;
+Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "d"));//93/08/01
+Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "D"));//پنج شنبه, 01 آبان 1393
+
+Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "t"));//21:53
+Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "T"));//21:53:26
+
+Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "g"));//93/08/01 21:53
+Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "G"));//93/08/01 21:53:26
+
+
+Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "f"));//پنج شنبه, 01 آبان 1393 21:53
+Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "F"));//پنج شنبه, 01 آبان 1393 21:53:26
+
+Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "m"));//آبان 1
+Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "M"));//
+
+Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "y"));//1393 آبان
+Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "Y"));//1393 آبان
+
+string persiandate = PersianDate.ConvertDate.ToFa(DateTime.Now);
+
+Debug.WriteLine(PersianDate.ConvertDate.ToEn(persiandate));//2014/10/23 00:00:00
