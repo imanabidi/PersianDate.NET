@@ -1,6 +1,8 @@
 #PersianDate.NET
 ===============
-
+install using nuget
+https://www.nuget.org/packages/PersianDate/
+Install-Package PersianDate
 
 - it is a lightweight(14KB) Persian date convertor library written in C# and with Microsoft.NET 2.
 - it tries to detect, normalize  correct given persian date string , considering the default input is in yyyy/mm/dd (1393/07/18) format.
@@ -36,10 +38,7 @@ Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "f"));//پنج شنب
 Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "F"));//پنج شنبه, 01 آبان 1393 21:53:26
 
 Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "m"));//آبان 1
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "M"));//آبان 1
-
 Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "y"));//1393 آبان
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "Y"));//1393 آبان
 
 string persiandate = PersianDate.ConvertDate.ToFa(DateTime.Now);//1393/08/01
 
