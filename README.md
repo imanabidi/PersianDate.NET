@@ -1,8 +1,10 @@
 #PersianDate.NET
 ===============
 install using nuget
+
 https://www.nuget.org/packages/PersianDate/
-Install-Package PersianDate
+
+PM> Install-Package PersianDate
 
 - it is a lightweight(14KB) Persian date convertor library written in C# and with Microsoft.NET 2.
 - it tries to detect, normalize  correct given persian date string , considering the default input is in yyyy/mm/dd (1393/07/18) format.
