@@ -24,24 +24,26 @@ in webpages or any other apps in UI side and want to:
 
 ##Formats and samples
 
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now));//1393/08/01
+use ToFa and toEn static methods of PersianDate class like below:
 
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "d"));//93/08/01
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "D"));//پنج شنبه, 01 آبان 1393
+//default format 
+string dts=ConvertDate.ToFa(DateTime.Now);//1393/08/01
+//date only (short and D for Long)
+dts=ConvertDate.ToFa(DateTime.Now, "d");//93/08/01 
+dts=ConvertDate.ToFa(DateTime.Now, "D");//پنج شنبه, 01 آبان 1393
+//time only 
+dts=ConvertDate.ToFa(DateTime.Now, "t");//21:53 
+dts=ConvertDate.ToFa(DateTime.Now, "T");//21:53:26
+//general short date + time
+dts=ConvertDate.ToFa(DateTime.Now, "g");//93/08/01 21:53 
+dts=ConvertDate.ToFa(DateTime.Now, "G");//93/08/01 21:53:26
+//general full date + time
+dts=ConvertDate.ToFa(DateTime.Now, "f");//پنج شنبه, 01 آبان 1393 21:53 
+dts=ConvertDate.ToFa(DateTime.Now, "F");//پنج شنبه, 01 آبان 1393 21:53:26
+//only month and year
+dts=ConvertDate.ToFa(DateTime.Now, "m");//آبان 1 
+dts=ConvertDate.ToFa(DateTime.Now, "y");//1393 آبان
 
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "t"));//21:53
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "T"));//21:53:26
-
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "g"));//93/08/01 21:53
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "G"));//93/08/01 21:53:26
-
-
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "f"));//پنج شنبه, 01 آبان 1393 21:53
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "F"));//پنج شنبه, 01 آبان 1393 21:53:26
-
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "m"));//آبان 1
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "y"));//1393 آبان
-
-string persiandate = PersianDate.ConvertDate.ToFa(DateTime.Now);//1393/08/01
-
-Debug.WriteLine(PersianDate.ConvertDate.ToEn(persiandate));//2014/10/23 00:00:00
+dts=ConvertDate.ToFa(DateTime.Now);//1393/08/01
+// converting back to Gregorian date 
+Datetime dt= ConvertDate.ToEn(dts);//2014/10/23 00:00:00
