@@ -30,9 +30,15 @@ namespace UsageSamples
 
             Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "y"));//1393 آبان
             Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "Y"));//1393 آبان
+            //new standard formats 
+            Debug.WriteLine("new standard formats ");
+            Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "yy MMM"));//93 آبان 
+            Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "yyyy/MM/dd "));//1393/8/9 
+            Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "yy-M-d "));//93-8-09
+            Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "ddd dd MMM yyyy"));//جمعه 9 آبان 1393
 
-            string persiandate = PersianDate.ConvertDate.ToFa(DateTime.Now);
-           
+            Debug.WriteLine("ToEn test ");
+            string persiandate = PersianDate.ConvertDate.ToFa(DateTime.Now); 
             Debug.WriteLine(PersianDate.ConvertDate.ToEn(persiandate));//2014/10/23 00:00:00
 
             Console.WriteLine("check visual studio output window");

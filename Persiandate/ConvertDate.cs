@@ -241,37 +241,66 @@ namespace PersianDate
 
             ShamsiDate sd = ToShamsiDate(dateTime.Value);
 
-            switch (format)
+            if (format.Length == 1)
             {
 
-                case "d": return sd.ShortDate;//93/07/27
-                case "D": return sd.LongDate;//یکشنبه, 27 مهر 1393
-                case "t": return sd.ShortTime;
-                case "T": return sd.LongTime;
-             
-                case "f": //Long date + short time
-                    return string.Format("{0} {1}", sd.LongDate, sd.ShortTime);
-                case "F": // Long date + long time //یکشنبه, 27 مهر 1393 01:15:43
-                    return string.Format("{0} {1}", sd.LongDate, sd.LongTime);
-                
-                case "g": //Short date + short time //93/07/27 01:14:24
-                    return string.Format("{0} {1}", sd.ShortDate, sd.ShortTime);
-                case "G": //Short date + long time
-                    return string.Format("{0} {1}", sd.ShortDate, sd.LongTime);
-                
-                case "m":
-                case "M":  //Month and day
-                    return string.Format("{0} {1}", sd.MahName, sd.RoozeMah);
-               
-                case "y":
-                case "Y": // year and month
-                    return string.Format("{0} {1}", sd.Saal, sd.MahName);
-               
-                case "B": //best with year and month and day ,simple
-                    return string.Format("{0}/{1:00}/{2:00}", sd.Saal, sd.Mah, sd.RoozeMah);
-                default:
-                    return sd.ShortDate;
+
+                switch (format)
+                {
+
+                    case "d":
+                        return sd.ShortDate; //93/07/27
+                    case "D":
+                        return sd.LongDate; //یکشنبه, 27 مهر 1393
+                    case "t":
+                        return sd.ShortTime;
+                    case "T":
+                        return sd.LongTime;
+
+                    case "f": //Long date + short time
+                        return string.Format("{0} {1}", sd.LongDate, sd.ShortTime);
+                    case "F": // Long date + long time //یکشنبه, 27 مهر 1393 01:15:43
+                        return string.Format("{0} {1}", sd.LongDate, sd.LongTime);
+
+                    case "g": //Short date + short time //93/07/27 01:14:24
+                        return string.Format("{0} {1}", sd.ShortDate, sd.ShortTime);
+                    case "G": //Short date + long time
+                        return string.Format("{0} {1}", sd.ShortDate, sd.LongTime);
+
+                    case "m":
+                    case "M": //Month and day
+                        return string.Format("{0} {1}", sd.MahName, sd.RoozeMah);
+
+                    case "y":
+                    case "Y": // year and month
+                        return string.Format("{0} {1}", sd.Saal, sd.MahName);
+
+                    case "B": //best with year and month and day ,simple
+                        return string.Format("{0}/{1:00}/{2:00}", sd.Saal, sd.Mah, sd.RoozeMah);
+                    default:
+                        return sd.ShortDate;
+                }
             }
+            else
+            {
+                //important: first replace longer occurances
+
+                format = format.Replace("YY","yy");
+
+                return format
+                    .Replace("yyyy", sd.Saal.ToString(CultureInfo.InvariantCulture))
+                    .Replace("yy", sd.Saal.ToString(CultureInfo.InvariantCulture).Substring(2,2))
+                    .Replace("MMM",  sd.MahName.ToString(CultureInfo.InvariantCulture))
+                    .Replace("MM", sd.Mah.ToString(CultureInfo.InvariantCulture).PadLeft(2,'0'))
+                    .Replace("M", sd.Mah.ToString(CultureInfo.InvariantCulture))
+                    .Replace("ddd", sd.RoozeHaftehName.ToString(CultureInfo.InvariantCulture))
+                    .Replace("dd", sd.RoozeMah.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'))
+                    .Replace("d", sd.RoozeMah.ToString(CultureInfo.InvariantCulture))
+                    .Replace("hh", sd.Saat.ToString(CultureInfo.InvariantCulture))
+                    .Replace("mm", sd.Daghighe.ToString(CultureInfo.InvariantCulture))
+                    .Replace("ss", sd.Saniyeh.ToString(CultureInfo.InvariantCulture)); 
+            }
+
 
         }
 
