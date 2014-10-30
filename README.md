@@ -44,6 +44,13 @@ use ToFa and toEn static methods of PersianDate class like below:
     dts=ConvertDate.ToFa(DateTime.Now, "m");//آبان 1 
     dts=ConvertDate.ToFa(DateTime.Now, "y");//1393 آبان
     
+    //new standard formats 
+    
+    string string2=ConvertDate.ToFa(DateTime.Now, "yy MMM");//93 آبان 
+    string2=ConvertDate.ToFa(DateTime.Now, "yyyy/MM/dd ");//1393/8/9 
+    string2=ConvertDate.ToFa(DateTime.Now, "yy-M-d ");//93-8-09
+    string2= ConvertDate.ToFa(DateTime.Now, "ddd dd MMM yyyy");//جمعه 9 آبان 1393
+    
     dts=ConvertDate.ToFa(DateTime.Now);//1393/08/01
     // converting back to Gregorian date 
     Datetime dt= ConvertDate.ToEn(dts);//2014/10/23 00:00:00
