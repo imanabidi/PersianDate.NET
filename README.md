@@ -1,6 +1,10 @@
 #PersianDate.NET
 ===============
+install using nuget
 
+https://www.nuget.org/packages/PersianDate/
+
+PM> Install-Package PersianDate
 
 - it is a lightweight(14KB) Persian date convertor library written in C# and with Microsoft.NET 2.
 - it tries to detect, normalize  correct given persian date string , considering the default input is in yyyy/mm/dd (1393/07/18) format.
@@ -20,27 +24,33 @@ in webpages or any other apps in UI side and want to:
 
 ##Formats and samples
 
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now));//1393/08/01
+use ToFa and toEn static methods of PersianDate class like below:
 
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "d"));//93/08/01
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "D"));//پنج شنبه, 01 آبان 1393
-
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "t"));//21:53
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "T"));//21:53:26
-
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "g"));//93/08/01 21:53
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "G"));//93/08/01 21:53:26
-
-
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "f"));//پنج شنبه, 01 آبان 1393 21:53
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "F"));//پنج شنبه, 01 آبان 1393 21:53:26
-
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "m"));//آبان 1
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "M"));//آبان 1
-
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "y"));//1393 آبان
-Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "Y"));//1393 آبان
-
-string persiandate = PersianDate.ConvertDate.ToFa(DateTime.Now);//1393/08/01
-
-Debug.WriteLine(PersianDate.ConvertDate.ToEn(persiandate));//2014/10/23 00:00:00
+    //default format 
+    string dts=ConvertDate.ToFa(DateTime.Now);//1393/08/01
+    //date only (short and D for Long)
+    dts=ConvertDate.ToFa(DateTime.Now, "d");//93/08/01 
+    dts=ConvertDate.ToFa(DateTime.Now, "D");//پنج شنبه, 01 آبان 1393
+    //time only 
+    dts=ConvertDate.ToFa(DateTime.Now, "t");//21:53 
+    dts=ConvertDate.ToFa(DateTime.Now, "T");//21:53:26
+    //general short date + time
+    dts=ConvertDate.ToFa(DateTime.Now, "g");//93/08/01 21:53 
+    dts=ConvertDate.ToFa(DateTime.Now, "G");//93/08/01 21:53:26
+    //general full date + time
+    dts=ConvertDate.ToFa(DateTime.Now, "f");//پنج شنبه, 01 آبان 1393 21:53 
+    dts=ConvertDate.ToFa(DateTime.Now, "F");//پنج شنبه, 01 آبان 1393 21:53:26
+    //only month and year
+    dts=ConvertDate.ToFa(DateTime.Now, "m");//آبان 1 
+    dts=ConvertDate.ToFa(DateTime.Now, "y");//1393 آبان
+    
+    //new standard formats 
+    
+    string string2=ConvertDate.ToFa(DateTime.Now, "yy MMM");//93 آبان 
+    string2=ConvertDate.ToFa(DateTime.Now, "yyyy/MM/dd ");//1393/8/9 
+    string2=ConvertDate.ToFa(DateTime.Now, "yy-M-d ");//93-8-09
+    string2= ConvertDate.ToFa(DateTime.Now, "ddd dd MMM yyyy");//جمعه 9 آبان 1393
+    
+    dts=ConvertDate.ToFa(DateTime.Now);//1393/08/01
+    // converting back to Gregorian date 
+    Datetime dt= ConvertDate.ToEn(dts);//2014/10/23 00:00:00
