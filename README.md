@@ -6,7 +6,7 @@ https://www.nuget.org/packages/PersianDate/
 
 PM> Install-Package PersianDate
 
-- it is a lightweight(14KB) Persian date convertor library written in C# and with Microsoft.NET 2.
+- it is a lightweight(17KB) Persian date convertor library written in C# and with Microsoft.NET 2.
 - it tries to detect, normalize  correct given persian date string , considering the default input is in yyyy/mm/dd (1393/07/18) format.
 - it uses the default System.Globalization.PersianCalendar class for all date conversions
 - most methods uses short names (ToFa or ToEn) and are static for fast invokation
@@ -23,7 +23,7 @@ in webpages or any other apps in UI side and want to:
 - also you need this library when you want to show back the persian date back to UI.
 
 ##Formats and samples
-
+Note: all the given samples are in the simple usage console sample Project in the solution
 use ToFa and toEn static methods of PersianDate class like below:
 
     //default format 
@@ -51,6 +51,14 @@ use ToFa and toEn static methods of PersianDate class like below:
     string2=ConvertDate.ToFa(DateTime.Now, "yy-M-d ");//93-8-09
     string2= ConvertDate.ToFa(DateTime.Now, "ddd dd MMM yyyy");//جمعه 9 آبان 1393
     
-    dts=ConvertDate.ToFa(DateTime.Now);//1393/08/01
-    // converting back to Gregorian date 
-    Datetime dt= ConvertDate.ToEn(dts);//2014/10/23 00:00:00
+    //testing convert back to DateTime from persian string
+    ConvertDate.ToEn("1393/08/01");//2014/10/23 00:00:00 
+    ConvertDate.ToEn("01/8/1393");//2014/10/23 00:00:00 
+    ConvertDate.ToEn("1/8/1393");//2014/10/23 00:00:00 
+    ConvertDate.ToEn("1-8-93");//2014/10/23 00:00:00 
+    ConvertDate.ToEn("93-8-01");//2014/10/23 00:00:00 
+    ConvertDate.ToEn("93 8 01");//2014/10/23 00:00:00 
+    //extra spaces and different seperators are handeled 
+    ConvertDate.ToEn("1_8_1393 ");//2014/10/23 00:00:00 
+    ConvertDate.ToEn(" 1_8_1393 ");//2014/10/23 00:00:00 
+    ConvertDate.ToEn(" 1.8.1393 ");//2014/10/23 00:00:00
