@@ -82,9 +82,9 @@ namespace PersianDate
             //new simple method which emcompass below methods too
             try
             {
-                pYear = int.Parse(rawValues[0].TrimStart(new[] { '0' }));
-                pMonth = int.Parse(rawValues[1].TrimStart(new[] { '0' }));
-                pDay = int.Parse(rawValues[2].TrimStart(new[] { '0' }));
+                pYear = int.Parse(rawValues[0].TrimStart(new[] { '0' }).Trim());
+                pMonth = int.Parse(rawValues[1].TrimStart(new[] { '0' }).Trim());
+                pDay = int.Parse(rawValues[2].TrimStart(new[] { '0' }).Trim());
 
                 // the year usually must be larger than 90
                 //or for historic values rarely lower than 33 if 2 digit is given

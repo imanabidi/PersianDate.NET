@@ -39,17 +39,17 @@ namespace UsageSamples
 
             //testing convert back to DateTime from persian string
             Debug.WriteLine("ToEn test (testing convert back to DateTime from persian string) ");
-            string persiandate = PersianDate.ConvertDate.ToFa(DateTime.Now); 
-            Debug.WriteLine(PersianDate.ConvertDate.ToEn(persiandate));//2014/10/23 00:00:00
-            Debug.WriteLine(PersianDate.ConvertDate.ToEn("02/8/1393"));//2014/10/23 00:00:00
-            Debug.WriteLine(PersianDate.ConvertDate.ToEn("2/8/1393"));//2014/10/23 00:00:00
-            Debug.WriteLine(PersianDate.ConvertDate.ToEn("2-8-93"));//2014/10/23 00:00:00
-            Debug.WriteLine(PersianDate.ConvertDate.ToEn("93-8-02"));//2014/10/23 00:00:00
-            Debug.WriteLine(PersianDate.ConvertDate.ToEn("93 8 02"));//2014/10/23 00:00:00
-            Debug.WriteLine(PersianDate.ConvertDate.ToEn("2_8_1393 "));//2014/10/23 00:00:00
-            //extra spaces are handeled
-            Debug.WriteLine(PersianDate.ConvertDate.ToEn(" 2_8_1393 "));//2014/10/23 00:00:00
-            Debug.WriteLine(PersianDate.ConvertDate.ToEn(" 2.8.1393 "));//2014/10/23 00:00:00
+
+            Debug.WriteLine(PersianDate.ConvertDate.ToEn("1393/08/01"));//2014/10/23 00:00:00
+            Debug.WriteLine(PersianDate.ConvertDate.ToEn("01/8/1393"));//2014/10/23 00:00:00
+            Debug.WriteLine(PersianDate.ConvertDate.ToEn("1/8/1393"));//2014/10/23 00:00:00
+            Debug.WriteLine(PersianDate.ConvertDate.ToEn("1-8-93"));//2014/10/23 00:00:00
+            Debug.WriteLine(PersianDate.ConvertDate.ToEn("93-8-01"));//2014/10/23 00:00:00
+            Debug.WriteLine(PersianDate.ConvertDate.ToEn("93 8 01"));//2014/10/23 00:00:00
+            //extra spaces and different seperators are handeled
+            Debug.WriteLine(PersianDate.ConvertDate.ToEn("1_8_1393 "));//2014/10/23 00:00:00
+            Debug.WriteLine(PersianDate.ConvertDate.ToEn(" 1_8_1393 "));//2014/10/23 00:00:00
+            Debug.WriteLine(PersianDate.ConvertDate.ToEn(" 1.8.1393 "));//2014/10/23 00:00:00
 
 
             Console.WriteLine("check visual studio output window");
