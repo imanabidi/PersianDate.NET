@@ -37,9 +37,16 @@ namespace UsageSamples
             Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "yy-M-d "));//93-8-09
             Debug.WriteLine(PersianDate.ConvertDate.ToFa(DateTime.Now, "ddd dd MMM yyyy"));//جمعه 9 آبان 1393
 
-            Debug.WriteLine("ToEn test ");
+            //testing convert back to DateTime from persian string
+            Debug.WriteLine("ToEn test (testing convert back to DateTime from persian string) ");
             string persiandate = PersianDate.ConvertDate.ToFa(DateTime.Now); 
             Debug.WriteLine(PersianDate.ConvertDate.ToEn(persiandate));//2014/10/23 00:00:00
+            Debug.WriteLine(PersianDate.ConvertDate.ToEn("02/8/1393"));//2014/10/23 00:00:00
+            Debug.WriteLine(PersianDate.ConvertDate.ToEn("2/8/1393"));//2014/10/23 00:00:00
+            Debug.WriteLine(PersianDate.ConvertDate.ToEn("2-8-93"));//2014/10/23 00:00:00
+            Debug.WriteLine(PersianDate.ConvertDate.ToEn("93-8-02"));//2014/10/23 00:00:00
+            Debug.WriteLine(PersianDate.ConvertDate.ToEn("93 8_02"));//2014/10/23 00:00:00
+
 
             Console.WriteLine("check visual studio output window");
             Console.WriteLine("press any key to continue");

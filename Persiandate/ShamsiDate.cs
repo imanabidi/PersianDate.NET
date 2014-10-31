@@ -17,6 +17,7 @@ namespace PersianDate
         /// <param name="date"></param>
         internal ShamsiDate(DateTime date)
         {
+            EquivalentGoergianDate = date;
             var pDate = new System.Globalization.PersianCalendar();
 
             Saal = pDate.GetYear(date);
@@ -30,7 +31,28 @@ namespace PersianDate
             RoozeHafteh = ConvertDate.MapWeekDayToNum(pDate.GetDayOfWeek(date));
         }
 
+        internal ShamsiDate(int saal,int mah,int rooz)
+        {
+           
+            Saal = saal;
+            Mah = mah;
+            RoozeMah = rooz;
+
+            var pDate = new System.Globalization.PersianCalendar();
+            EquivalentGoergianDate = pDate.ToDateTime(saal, mah, rooz, 0, 0, 0, 0);
+            
+            Saat = pDate.GetHour(EquivalentGoergianDate);
+            Daghighe = pDate.GetMinute(EquivalentGoergianDate);
+            Saniyeh = pDate.GetSecond(EquivalentGoergianDate);
+
+            RoozeHafteh = ConvertDate.MapWeekDayToNum(pDate.GetDayOfWeek(EquivalentGoergianDate));
+        }
+
+
         #region properties
+
+        public DateTime EquivalentGoergianDate { get; set; }
+
         internal string RoozeHaftehName
         {
             get

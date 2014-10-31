@@ -10,7 +10,12 @@ namespace PersianDate
 
     public static class ConvertDate
     {
-        private static readonly string[] ShamsiMonthNames = { "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند" };
+        private static readonly string[] ShamsiMonthNames =
+        {
+            "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور",
+            "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"
+        };
+
         //private static readonly string[] ShamsiWeekDayNames = {"شنبه", "یکشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنجشنبه", "جمعه" };
         // private static readonly string[] ShamsiWeekDayShortNames = { "ی", "د", "س", "چ", "پ", "ج", "ش" };
 
@@ -24,7 +29,7 @@ namespace PersianDate
         public static DateTime ToEn(string fadate)
         {
             if (fadate.Trim() == "") return DateTime.MinValue;
-            int[] farsiPartArray = SplitRoozMahSal(fadate);
+            int[] farsiPartArray = SplitRoozMahSalNew(fadate);
 
             return new PersianCalendar().ToDateTime(farsiPartArray[0], farsiPartArray[1], farsiPartArray[2], 0, 0, 0, 0);
 
@@ -46,6 +51,66 @@ namespace PersianDate
         }
 
         /// <summary>
+        /// simpler and more powerfull and returns ShamsiDate
+        /// </summary>
+        /// <param name="farsiDate"></param>
+        /// <returns></returns>
+        private static int[] SplitRoozMahSalNew(string farsiDate)
+        {
+            int pYear = 0;
+            int pMonth = 0;
+            int pDay = 0;
+
+
+            //normalize with one character
+            farsiDate = farsiDate.Trim().Replace(@"\", "/").Replace(@"-", "/").Replace(@"_", "/").
+                Replace(@",", "/").Replace(@".", "/").Replace(@" ", "/");
+
+
+            string[] rawValues = farsiDate.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+
+
+            if (!farsiDate.Contains("/"))
+            {
+                if (rawValues.Length != 2)
+                    throw new Exception("usually there should be 2 seperator for a complete date");
+            }
+            else //mostly given in all numeric format like 13930316
+            {
+                // detect year side and add slashes in right places and continue
+            }
+            //new simple method which emcompass below methods too
+            try
+            {
+                pYear = int.Parse(rawValues[0].TrimStart(new[] { '0' }));
+                pMonth = int.Parse(rawValues[1].TrimStart(new[] { '0' }));
+                pDay = int.Parse(rawValues[2].TrimStart(new[] { '0' }));
+
+                // the year usually must be larger than 90
+                //or for historic values rarely lower than 33 if 2 digit is given
+                if (pYear < 33 && pYear > 0)
+                {
+                    //swap year and day
+                    pYear = pDay;
+                    pDay = int.Parse(rawValues[0]); //convert again
+                }
+                //fix 2 digits of persian strings
+                if (pYear.ToString(CultureInfo.InvariantCulture).Length == 2)
+                    pYear = pYear + 1300;
+                //
+                if (pMonth <= 0 || pMonth >= 13)
+                    throw new Exception("mahe shamsi must be under 12 ");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(
+                    "invalid Persian date format: maybe all 3 numric Sal, Mah,rooz parts are not present. \r\n" + ex);
+            }
+
+            return new[] { pYear, pMonth, pDay };
+        }
+
+        /// <summary>
         /// it is the main function responsible for analyzing and splitting the given persian date parts 
         /// and then convert back to gregorian date 
         /// </summary>
@@ -53,31 +118,41 @@ namespace PersianDate
         /// <returns></returns>
         private static int[] SplitRoozMahSal(string farsiDate)
         {
-
+            int year = 0;
+            int month = 0;
+            int day = 0;
 
             #region normalization and exception hadling
             //normalize with one character
-            farsiDate = farsiDate.Trim().Replace(@"\", "/").Replace(@"-", "/").Replace(@" ", "/");
+            farsiDate = farsiDate.Trim().Replace(@"\", "/").Replace(@"-", "/").Replace(@"_", "/").
+                Replace(@",", "/").Replace(@".", "/").Replace(@" ", "/");
+
+
+            string[] rawValues = farsiDate.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+
 
             if (!farsiDate.Contains("/"))
             {
-                if (farsiDate.Split('/').Length != 2)
+                if (rawValues.Length != 2)
                     throw new Exception("usually there should be 2 seperator for a complete date");
             }
             else //mostly given in all numeric format like 13930316
             {
                 // detect year side and add slashes in right places and continue
             }
-            //todo: handle if date is given in rtl format like 16021393
-            //todo: handle if date is given in short year format like 930316
-            //todo: ()not very usual handle if date is given in very short format like 93316
+
+
+
+            //todo: handle if date is given in rtl format like 16/02/1393
+            //todo: handle if date is given in short year format like 93/03/16
+            //if a number is greater than 31 it is year side 
+            //note:only if it is 2 digit there is risk after 1400 it becomes corrupted
+            //todo: ()not very usual handle if date is given in very short format like 93/3/16
 
             #endregion
 
 
-            int year = 0;
-            int month = 0;
-            int day = 0;
+
             int.TryParse(farsiDate.Substring(0, 4), out year);
             if (year == 0)
                 throw new Exception("the first 4 character must denots a shamsi year like 1393");
@@ -285,20 +360,20 @@ namespace PersianDate
             {
                 //important: first replace longer occurances
 
-                format = format.Replace("YY","yy");
+                format = format.Replace("YY", "yy");
 
                 return format
                     .Replace("yyyy", sd.Saal.ToString(CultureInfo.InvariantCulture))
-                    .Replace("yy", sd.Saal.ToString(CultureInfo.InvariantCulture).Substring(2,2))
-                    .Replace("MMM",  sd.MahName.ToString(CultureInfo.InvariantCulture))
-                    .Replace("MM", sd.Mah.ToString(CultureInfo.InvariantCulture).PadLeft(2,'0'))
+                    .Replace("yy", sd.Saal.ToString(CultureInfo.InvariantCulture).Substring(2, 2))
+                    .Replace("MMM", sd.MahName.ToString(CultureInfo.InvariantCulture))
+                    .Replace("MM", sd.Mah.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'))
                     .Replace("M", sd.Mah.ToString(CultureInfo.InvariantCulture))
                     .Replace("ddd", sd.RoozeHaftehName.ToString(CultureInfo.InvariantCulture))
                     .Replace("dd", sd.RoozeMah.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'))
                     .Replace("d", sd.RoozeMah.ToString(CultureInfo.InvariantCulture))
                     .Replace("hh", sd.Saat.ToString(CultureInfo.InvariantCulture))
                     .Replace("mm", sd.Daghighe.ToString(CultureInfo.InvariantCulture))
-                    .Replace("ss", sd.Saniyeh.ToString(CultureInfo.InvariantCulture)); 
+                    .Replace("ss", sd.Saniyeh.ToString(CultureInfo.InvariantCulture));
             }
 
 
