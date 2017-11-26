@@ -14,3 +14,11 @@ C:\Projects\PersianDate\GIT\PersianDate.NET\UsageSamples\bin\Debug\UsageSamples.
 C:\Projects\PersianDate\GIT\PersianDate.NET\UsageSamples\bin\Debug\PersianDate.dll
 C:\Projects\PersianDate\GIT\PersianDate.NET\UsageSamples\bin\Debug\PersianDate.pdb
 C:\Projects\PersianDate\GIT\PersianDate.NET\UsageSamples\obj\Debug\UsageSamples.pdb
+C:\Users\Administrator\Source\Repos\PersianDate.NET\UsageSamples\obj\Debug\UsageSamples.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Source\Repos\PersianDate.NET\UsageSamples\bin\Debug\UsageSamples.exe.config
+C:\Users\Administrator\Source\Repos\PersianDate.NET\UsageSamples\bin\Debug\UsageSamples.exe
+C:\Users\Administrator\Source\Repos\PersianDate.NET\UsageSamples\bin\Debug\UsageSamples.pdb
+C:\Users\Administrator\Source\Repos\PersianDate.NET\UsageSamples\bin\Debug\PersianDate.dll
+C:\Users\Administrator\Source\Repos\PersianDate.NET\UsageSamples\bin\Debug\PersianDate.pdb
+C:\Users\Administrator\Source\Repos\PersianDate.NET\UsageSamples\obj\Debug\UsageSamples.exe
+C:\Users\Administrator\Source\Repos\PersianDate.NET\UsageSamples\obj\Debug\UsageSamples.pdb

@@ -16,24 +16,20 @@ namespace PersianDate
             "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"
         };
 
-        //private static readonly string[] ShamsiWeekDayNames = {"شنبه", "یکشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنجشنبه", "جمعه" };
-        // private static readonly string[] ShamsiWeekDayShortNames = { "ی", "د", "س", "چ", "پ", "ج", "ش" };
-
-
-
         /// <summary>
         /// usually to convert the persian calendar output text and any format starting with 4 digit farsi year
         /// </summary>
-        /// <param name="fadate"></param>
+        /// <param name="persianDate"></param>
         /// <returns></returns>
-        public static DateTime ToEn(string fadate)
+        public static DateTime ToEn(this string persianDate)
         {
-            if (fadate.Trim() == "") return DateTime.MinValue;
-            int[] farsiPartArray = SplitRoozMahSalNew(fadate);
+            if (persianDate.Trim() == "") return DateTime.MinValue;
+            int[] farsiPartArray = SplitRoozMahSalNew(persianDate);
 
-            return new PersianCalendar().ToDateTime(farsiPartArray[0], farsiPartArray[1], farsiPartArray[2], 0, 0, 0, 0);
-
+            return new PersianCalendar().ToDateTime(farsiPartArray[0], farsiPartArray[1], farsiPartArray[2],
+                farsiPartArray[3], farsiPartArray[4], farsiPartArray[5], farsiPartArray[6]);
         }
+
 
         /// <summary>
         /// get persian date and convert to georgian or miladi date
@@ -60,15 +56,16 @@ namespace PersianDate
             int pYear = 0;
             int pMonth = 0;
             int pDay = 0;
-
+            int pHour = 0;
+            int pMins = 0;
+            int pSeconds = 0;
+            int pMilliSeconds = 0;
 
             //normalize with one character
             farsiDate = farsiDate.Trim().Replace(@"\", "/").Replace(@"-", "/").Replace(@"_", "/").
-                Replace(@",", "/").Replace(@".", "/").Replace(@" ", "/");
-
+                Replace(@",", "/").Replace(@".", "/").Replace(@" ", "/").Replace(@":", "/");
 
             string[] rawValues = farsiDate.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
-
 
             if (!farsiDate.Contains("/"))
             {
@@ -85,6 +82,15 @@ namespace PersianDate
                 pYear = int.Parse(rawValues[0].TrimStart(new[] { '0' }).Trim());
                 pMonth = int.Parse(rawValues[1].TrimStart(new[] { '0' }).Trim());
                 pDay = int.Parse(rawValues[2].TrimStart(new[] { '0' }).Trim());
+
+                if (rawValues.Length >= 4)
+                    pHour = int.Parse(rawValues[3].TrimStart(new[] { '0' }).Trim());
+                if (rawValues.Length >= 5)
+                    pMins = int.Parse(rawValues[4].TrimStart(new[] { '0' }).Trim());
+                if (rawValues.Length >= 6)
+                    pSeconds = int.Parse(rawValues[5].TrimStart(new[] { '0' }).Trim());
+                if (rawValues.Length >= 7)
+                    pMilliSeconds = int.Parse(rawValues[6].TrimStart(new[] { '0' }).Trim());
 
                 // the year usually must be larger than 90
                 //or for historic values rarely lower than 33 if 2 digit is given
@@ -107,7 +113,7 @@ namespace PersianDate
                     "invalid Persian date format: maybe all 3 numric Sal, Mah,rooz parts are not present. \r\n" + ex);
             }
 
-            return new[] { pYear, pMonth, pDay };
+            return new[] { pYear, pMonth, pDay, pHour, pMins, pSeconds, pMilliSeconds };
         }
 
         /// <summary>
@@ -194,11 +200,6 @@ namespace PersianDate
             return new[] { year, month, day };
 
         }
-
-
-
-
-
 
 
         #region ShamsiDate
@@ -291,14 +292,20 @@ namespace PersianDate
         }
 
 
-        /// <summary>
-        /// convert to persian string with default format like 1393/07/03
-        /// </summary>
-        /// <param name="dateTime"></param>
-        /// <returns></returns>
-        public static string ToFa(DateTime dateTime)
+        ///// <summary>
+        ///// convert to persian string with default format like 1393/07/03
+        ///// </summary>
+        ///// <param name="dateTime"></param>
+        ///// <returns></returns>
+        //public static string ToFa(this DateTime dateTime)
+        //{
+        //    return ToFa(dateTime, "B");
+        //}
+
+
+        public static string ToFa(this DateTime? dateTime, string format = "B")
         {
-            return ToFa(dateTime, "B");
+            return !dateTime.HasValue ? string.Empty : dateTime.Value.ToFa(format);
         }
 
         /// <summary>
@@ -308,21 +315,14 @@ namespace PersianDate
         /// <param name="format">d(date short),D t(time short),T f(full),F 
         /// - g,G , m,M y,Y and finally B (1393/07/18)</param>
         /// <returns></returns>
-        public static string ToFa(DateTime? dateTime, string format)
+        public static string ToFa(this DateTime dateTime, string format = "B")
         {
-
-            if (!dateTime.HasValue)
-                return string.Empty;
-
-            ShamsiDate sd = ToShamsiDate(dateTime.Value);
+            ShamsiDate sd = ToShamsiDate(dateTime);
 
             if (format.Length == 1)
             {
-
-
                 switch (format)
                 {
-
                     case "d":
                         return sd.ShortDate; //93/07/27
                     case "D":
