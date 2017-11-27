@@ -1,17 +1,16 @@
-#PersianDate.NET
+# PersianDate.NET
 ===============
-install using nuget
 
-https://www.nuget.org/packages/PersianDate/
+install using nuget https://www.nuget.org/packages/PersianDate/
 
-PM> Install-Package PersianDate
+>**Install-Package PersianDate**
 
 - it is a lightweight(17KB) Persian date convertor library written in C# and with Microsoft.Net 2.
 - it tries to detect, normalize  correct given persian date string , considering the default input is in yyyy/mm/dd (1393/07/18) format.
 - it uses the default System.Globalization.PersianCalendar class for all date conversions
 - most methods uses short names (ToFa or ToEn) and are static for fast invocation (converted to extension methods of datetime and datetime? and string when ported to .Net 3.5)
 
-##USES
+# USES
 
 when you usually use a jquery persian date picker like:
 - http://hasheminezhad.com/datepicker 
@@ -22,7 +21,7 @@ in webpages or any other apps in UI side and want to:
 - convert your persian date string back to georgian and save it as a datetime in database you need some functions to do it for you. 
 - also you need this library when you want to show back the persian date back to UI.
 
-##Formats and samples
+# Formats and samples
 Note: all the given samples are in the simple usage console sample Project in the solution
 use ToFa and toEn static methods of PersianDate class like below:
     using PersianDate;   
