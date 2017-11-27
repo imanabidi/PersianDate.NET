@@ -24,7 +24,7 @@ namespace UsageSamples
             Debug.WriteLine(DateTime.Now.ToFa("F"));//پنج شنبه, 01 آبان 1393 21:53:26
 
             Debug.WriteLine(DateTime.Now.ToFa("m"));//آبان 1
-            Debug.WriteLine(DateTime.Now.ToFa("M"));//
+            Debug.WriteLine(DateTime.Now.ToFa("M"));//آبان 1
 
             Debug.WriteLine(DateTime.Now.ToFa("y"));//1393 آبان
             Debug.WriteLine(DateTime.Now.ToFa("Y"));//1393 آبان
@@ -38,7 +38,7 @@ namespace UsageSamples
             //testing convert back to DateTime from persian string
             Debug.WriteLine("ToEn test (testing convert back to DateTime from persian string) ");
 
-            Debug.WriteLine("1393/08/01".ToEn());//2014/10/23 00:00:00
+            Debug.WriteLine("1393/08/01 16:20".ToEn());//2014/10/23 16:20:00
             Debug.WriteLine("01/8/1393".ToEn());//2014/10/23 00:00:00
             Debug.WriteLine("1/8/1393".ToEn());//2014/10/23 00:00:00
             Debug.WriteLine("1-8-93".ToEn());//2014/10/23 00:00:00

@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
+    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
+    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+   <description>https://github.com/imanabidi/PersianDate.NET
+
+
+Sample 1 line usages:
+using PersianDate;
+
+string dts=ConvertDate.ToFa(DateTime.Now);//1393/08/01
+
+//date only (short and D for Long)
+dts=ConvertDate.ToFa(DateTime.Now, "d");//93/08/01
+dts=ConvertDate.ToFa(DateTime.Now, "D");//پنج شنبه, 01 آبان 1393
+
+//time only
+dts=ConvertDate.ToFa(DateTime.Now, "t");//21:53
+dts=ConvertDate.ToFa(DateTime.Now, "T");//21:53:26
+
+//general short date + time
+dts=ConvertDate.ToFa(DateTime.Now, "g");//93/08/01 21:53
+dts=ConvertDate.ToFa(DateTime.Now, "G");//93/08/01 21:53:26
+
+//general full date + time
+dts=ConvertDate.ToFa(DateTime.Now, "f");//پنج شنبه, 01 آبان 1393 21:53
+dts=ConvertDate.ToFa(DateTime.Now, "F");//پنج شنبه, 01 آبان 1393 21:53:26
+
+//only month and year
+dts=ConvertDate.ToFa(DateTime.Now, "m");//آبان 1
+dts=ConvertDate.ToFa(DateTime.Now, "y");//1393 آبان
+
+//new standard formats
+string string2=ConvertDate.ToFa(DateTime.Now, "yy MMM");//93 آبان
+string2=ConvertDate.ToFa(DateTime.Now, "yyyy/MM/dd ");//1393/8/9
+string2=ConvertDate.ToFa(DateTime.Now, "yy-M-d ");//93-8-09
+string2= ConvertDate.ToFa(DateTime.Now, "ddd dd MMM yyyy");//جمعه 9 آبان 1393
+
+//testing convert back to DateTime from persian string
+Datetime d1=ConvertDate.ToEn("1393/08/01");//2014/10/23 00:00:00
+d1=ConvertDate.ToEn("01/8/1393");//2014/10/23 00:00:00
+d1=ConvertDate.ToEn("1/8/1393");//2014/10/23 00:00:00
+d1=ConvertDate.ToEn("1-8-93");//2014/10/23 00:00:00
+d1=ConvertDate.ToEn("93-8-01");//2014/10/23 00:00:00
+d1=ConvertDate.ToEn("93 8 01");//2014/10/23 00:00:00
+
+//extra spaces and different separators are handled
+d1=ConvertDate.ToEn("1_8_1393 ");//2014/10/23 00:00:00
+d1=ConvertDate.ToEn(" 1_8_1393 ");//2014/10/23 00:00:00
+d1=ConvertDate.ToEn(" 1.8.1393 ");//2014/10/23 00:00:00</description>
+    <summary>Convert Datetime type to a string which represents persian date in different controllbable formats and also smart reverse conversion from persian Shamsi to Georgian</summary>
+    <releaseNotes>the time was not correctly converted in all functions when converted from and to dateTime</releaseNotes>
+    <language>en-US</language>
+    <tags>persian shamsi farsi date convert calendar jalali فارسی شمسی تقویم تاریخ تبدیل جلالی</tags>
+	 <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework2.0" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

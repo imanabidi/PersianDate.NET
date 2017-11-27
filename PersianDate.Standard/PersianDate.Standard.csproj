@@ -4,6 +4,16 @@
     <TargetFramework>netstandard1.3</TargetFramework>
     <RootNamespace>PersianDate.Standard</RootNamespace>
     <AssemblyName>PersianDate.Standard</AssemblyName>
+    <Version>1.3.0</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/imanabidi/PersianDate.NET</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/imanabidi/PersianDate.NET</RepositoryUrl>
+    <Authors>Iman Abidi</Authors>
+    <Company>Iman Abidi</Company>
+    <PackageTags>persian shamsi farsi date convert calendar jalali فارسی شمسی تقویم تاریخ تبدیل جلالی</PackageTags>
+    <RepositoryType>Git</RepositoryType>
+    <Copyright>2017</Copyright>
+    <Description>Convert System.Datetime to a string representing persian date like 1396/01/01 supporting many similar controllable standard date format (like MMM for آبان) and also smart reverse conversion from persian to Georgian</Description>
   </PropertyGroup>
 
   <ItemGroup>

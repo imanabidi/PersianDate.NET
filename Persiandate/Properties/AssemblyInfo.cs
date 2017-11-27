@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("PersianDate.NET")]
-[assembly: AssemblyDescription("using Microsoft.NET 2 System.Globalization.PersianCalendar class it tries to normalize given persian date string.default input is in yyyy/mm/dd (1393/07/18) format.most methods uses short names (ToFa or ToEn) and are static")]
+[assembly: AssemblyDescription("using Microsoft.Net 2 System.Globalization.PersianCalendar class it tries to normalize given persian date string.default input is in yyyy/mm/dd (1393/07/18) format.most methods uses short names (ToFa or ToEn) and are static")]
 [assembly:  AssemblyConfiguration("")]
 [assembly: AssemblyCompany("https://github.com/imanabidi/PersianDate.NET")]
 [assembly: AssemblyProduct("Common")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.3.*")]
-[assembly: AssemblyFileVersion("1.3.2.1")]
+[assembly: AssemblyVersion("3.5.*")]
+[assembly: AssemblyFileVersion("3.5.0.0")]

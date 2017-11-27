@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>PersianDate</id>
+        <version>3.5</version>
+        <title>Persian Date Convertor</title>
+        <authors>Iman Abidi</authors>
+        <owners>Iman Abidi</owners>
+        <projectUrl>https://github.com/imanabidi/PersianDate.NET</projectUrl>
+        <iconUrl>http://pimg.p30download.com/APK_IMG/a/tirgan.app.persian_date/icon/icon_3_small.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>
+
+DateTime.Now.ToFa();//1393/08/01
+
+DateTime.Now.ToFa("d");//93/08/01
+DateTime.Now.ToFa("D");//پنج شنبه, 01 آبان 1393
+
+DateTime.Now.ToFa("t");//21:53
+DateTime.Now.ToFa("T");//21:53:26
+
+DateTime.Now.ToFa("g");//93/08/01 21:53
+DateTime.Now.ToFa("G");//93/08/01 21:53:26
+
+DateTime.Now.ToFa("f");//پنج شنبه, 01 آبان 1393 21:53
+DateTime.Now.ToFa("F");//پنج شنبه, 01 آبان 1393 21:53:26
+
+DateTime.Now.ToFa("m");//آبان 1
+DateTime.Now.ToFa("M");//آبان 1
+
+DateTime.Now.ToFa("y");//1393 آبان
+DateTime.Now.ToFa("Y");//1393 آبان
+
+DateTime.Now.ToFa("yy MMM");//93 آبان 
+DateTime.Now.ToFa("yyyy/MM/dd ");//1393/8/9 
+DateTime.Now.ToFa("yy-M-d ");//93-8-09
+DateTime.Now.ToFa("ddd dd MMM yyyy");//جمعه 9 آبان 1393
+
+"1393/08/01 16:20".ToEn();//2014/10/23 16:20:00
+"01/8/1393".ToEn();//2014/10/23 00:00:00
+"1/8/1393".ToEn();//2014/10/23 00:00:00
+"1-8-93".ToEn();//2014/10/23 00:00:00
+"93-8-01".ToEn();//2014/10/23 00:00:00
+"93 8 01".ToEn();//2014/10/23 00:00:00
+
+"1_8_1393 ".ToEn();//2014/10/23 00:00:00
+" 1_8_1393 16:20".ToEn();//2014/10/23 16:20:00
+" 1.8.1393 16:20:48".ToEn();//2014/10/23 16:20:48</description>
+        <summary>Convert System.Datetime to a string representing persian date like 1396/01/01 supporting many similar controllable standard date format (like MMM for آبان) and also smart reverse conversion from persi</summary>
+        <releaseNotes>- Adding extension mthods for Datetime and Datetime?
+- Converting time in string back to georgian date</releaseNotes>
+        <language>en-US</language>
+        <tags>persian shamsi farsi date convert calendar jalali فارسی شمسی تقویم تاریخ تبدیل جلالی</tags>
+        <dependencies>
+            <group targetFramework=".NETFramework4.5" />
+            <group targetFramework=".NETFramework4.0" />
+            <group targetFramework=".NETFramework3.5" />
+            <group targetFramework=".NETFramework2.0" />
+            <group targetFramework=".NETPortable4.5-Profile259" />
+            <group targetFramework=".NETPortable4.0-Profile328" />
+        </dependencies>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="System" targetFramework=".NETFramework2.0" />
+        </frameworkAssemblies>
+    </metadata>
+    <files>
+        <file src="lib\MonoAndroid\PersianDate.dll" target="lib\MonoAndroid\PersianDate.dll" />
+        <file src="lib\net20\PersianDate.dll" target="lib\net20\PersianDate.dll" />
+        <file src="lib\net35\PersianDate.dll" target="lib\net35\PersianDate.dll" />
+        <file src="lib\net35-client\PersianDate.dll" target="lib\net35-client\PersianDate.dll" />
+        <file src="lib\netstandard1.3\PersianDate.Standard.dll" target="lib\netstandard1.3\PersianDate.Standard.dll" />        
+        <file src="lib\sl2\PersianDate.dll" target="lib\sl2\PersianDate.dll" />
+        <file src="lib\PersianDate.README.md" target="lib\PersianDate.README.md" />
+    </files>
+</package>
