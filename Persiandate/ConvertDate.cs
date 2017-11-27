@@ -16,6 +16,12 @@ namespace PersianDate
             "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"
         };
 
+        private static readonly string[] ShamsiDays =
+        {
+            "اول" ,"دوم" , "سوم"  , "چهارم"  , "پنجم"  , "ششم"  , "هفتم"  , "هشتم"  , "نهم"  , "دهم"
+            , "یازدهم"  , "دوازدهم"  , "سیزدهم"  , "چهاردهم"  , "پانزدهم"  , "شانزدهم"  , "هفدهم"  , "هجدهم"  , "نوزدهم"  , "بیستم"
+            , "بیست و یکم"  , "بیست و دوم" , "بیست و سوم" , "بیست و چهارم" , "بیست و پنجم" , "بیست و ششم" , "بیست و هفتم", "بیست و هشتم" , "بیست و نهم" , "سی ام" , "سی و یکم"
+        };
         /// <summary>
         /// usually to convert the persian calendar output text and any format starting with 4 digit farsi year
         /// </summary>
@@ -237,9 +243,6 @@ namespace PersianDate
 
         public static string MapWeekDayToName(int sunDayOfWeek)
         {
-            //we can use this method instead if switch
-            //return ShamsiMonthNames[sunDayOfWeek];
-
             switch (sunDayOfWeek)
             {
                 case 0: return "شنبه";
@@ -254,25 +257,24 @@ namespace PersianDate
             }
         }
 
-        public static string MapWeekDayToName(DayOfWeek sunDayOfWeek)
+        public static string MapWeekDayToName(DayOfWeek dayOfWeek)
         {
-            switch (sunDayOfWeek)
+            switch (dayOfWeek)
             {
-                case DayOfWeek.Saturday: return "شنبه";
-                case DayOfWeek.Sunday: return "یک شنبه";
-                case DayOfWeek.Monday: return "دو شنبه";
-                case DayOfWeek.Tuesday: return "سه شنبه";
-                case DayOfWeek.Wednesday: return "چهار شنبه";
-                case DayOfWeek.Thursday: return "پنج شنبه";
-                case DayOfWeek.Friday: return "جمعه";
+                case DayOfWeek.Saturday: return MapWeekDayToName(0);
+                case DayOfWeek.Sunday: return MapWeekDayToName(1);
+                case DayOfWeek.Monday: return MapWeekDayToName(2);
+                case DayOfWeek.Tuesday: return MapWeekDayToName(3);
+                case DayOfWeek.Wednesday: return MapWeekDayToName(4);
+                case DayOfWeek.Thursday: return MapWeekDayToName(5);
+                case DayOfWeek.Friday: return MapWeekDayToName(6);
             }
             return "";
         }
 
-        public static int MapWeekDayToNum(DayOfWeek sunDayOfWeek)
+        public static int MapWeekDayToNum(DayOfWeek dayOfWeek)
         {
-
-            switch (sunDayOfWeek)
+            switch (dayOfWeek)
             {
                 case DayOfWeek.Saturday: return 0;
                 case DayOfWeek.Sunday: return 1;
@@ -290,17 +292,6 @@ namespace PersianDate
         {
             return ShamsiMonthNames[fmonth - 1];
         }
-
-
-        ///// <summary>
-        ///// convert to persian string with default format like 1393/07/03
-        ///// </summary>
-        ///// <param name="dateTime"></param>
-        ///// <returns></returns>
-        //public static string ToFa(this DateTime dateTime)
-        //{
-        //    return ToFa(dateTime, "B");
-        //}
 
 
         public static string ToFa(this DateTime? dateTime, string format = "B")
@@ -333,9 +324,9 @@ namespace PersianDate
                         return sd.LongTime;
 
                     case "f": //Long date + short time
-                        return string.Format("{0} {1}", sd.LongDate, sd.ShortTime);
+                        return string.Format("{0} ساعت {1}", sd.LongDate, sd.ShortTime);
                     case "F": // Long date + long time //یکشنبه, 27 مهر 1393 01:15:43
-                        return string.Format("{0} {1}", sd.LongDate, sd.LongTime);
+                        return string.Format("{0} ساعت {1}", sd.LongDate, sd.LongTime);
 
                     case "g": //Short date + short time //93/07/27 01:14:24
                         return string.Format("{0} {1}", sd.ShortDate, sd.ShortTime);
@@ -343,8 +334,9 @@ namespace PersianDate
                         return string.Format("{0} {1}", sd.ShortDate, sd.LongTime);
 
                     case "m":
+                        return string.Format("{0} {1}", sd.RoozeMah, sd.MahName);
                     case "M": //Month and day
-                        return string.Format("{0} {1}", sd.MahName, sd.RoozeMah);
+                        return string.Format("{0} {1}", ShamsiDays[sd.RoozeMah - 1] ?? "", sd.MahName);
 
                     case "y":
                     case "Y": // year and month
@@ -356,27 +348,20 @@ namespace PersianDate
                         return sd.ShortDate;
                 }
             }
-            else
-            {
-                //important: first replace longer occurances
-
-                format = format.Replace("YY", "yy");
-
-                return format
-                    .Replace("yyyy", sd.Saal.ToString(CultureInfo.InvariantCulture))
-                    .Replace("yy", sd.Saal.ToString(CultureInfo.InvariantCulture).Substring(2, 2))
-                    .Replace("MMM", sd.MahName.ToString(CultureInfo.InvariantCulture))
-                    .Replace("MM", sd.Mah.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'))
-                    .Replace("M", sd.Mah.ToString(CultureInfo.InvariantCulture))
-                    .Replace("ddd", sd.RoozeHaftehName.ToString(CultureInfo.InvariantCulture))
-                    .Replace("dd", sd.RoozeMah.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'))
-                    .Replace("d", sd.RoozeMah.ToString(CultureInfo.InvariantCulture))
-                    .Replace("hh", sd.Saat.ToString(CultureInfo.InvariantCulture))
-                    .Replace("mm", sd.Daghighe.ToString(CultureInfo.InvariantCulture))
-                    .Replace("ss", sd.Saniyeh.ToString(CultureInfo.InvariantCulture));
-            }
-
-
+            //important: first replace longer occurances
+            return format.Replace("YY", "yy") // because year is not case sensetive
+                         .Replace("yyyy", sd.Saal.ToString(CultureInfo.InvariantCulture))
+                         .Replace("yy", sd.Saal.ToString(CultureInfo.InvariantCulture).Substring(2, 2))
+                         .Replace("MMM", sd.MahName.ToString(CultureInfo.InvariantCulture))
+                         .Replace("MM", sd.Mah.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'))
+                         .Replace("M", sd.Mah.ToString(CultureInfo.InvariantCulture))
+                         .Replace("D", ShamsiDays[sd.RoozeMah - 1]?.ToString(CultureInfo.InvariantCulture))
+                         .Replace("ddd", sd.RoozeHaftehName.ToString(CultureInfo.InvariantCulture))
+                         .Replace("dd", sd.RoozeMah.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'))
+                         .Replace("d", sd.RoozeMah.ToString(CultureInfo.InvariantCulture))
+                         .Replace("hh", sd.Saat.ToString(CultureInfo.InvariantCulture))
+                         .Replace("mm", sd.Daghighe.ToString(CultureInfo.InvariantCulture))
+                         .Replace("ss", sd.Saniyeh.ToString(CultureInfo.InvariantCulture));
         }
 
     }

@@ -10,8 +10,8 @@
     <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
     <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-   <description>https://github.com/imanabidi/PersianDate.NET
-
+   <description>   
+https://github.com/imanabidi/PersianDate.NET
 
 Sample 1 line usages:
 using PersianDate;
@@ -55,7 +55,9 @@ d1=ConvertDate.ToEn("93 8 01");//2014/10/23 00:00:00
 //extra spaces and different separators are handled
 d1=ConvertDate.ToEn("1_8_1393 ");//2014/10/23 00:00:00
 d1=ConvertDate.ToEn(" 1_8_1393 ");//2014/10/23 00:00:00
-d1=ConvertDate.ToEn(" 1.8.1393 ");//2014/10/23 00:00:00</description>
+d1=ConvertDate.ToEn(" 1.8.1393 ");//2014/10/23 00:00:00
+
+</description>
     <summary>Convert Datetime type to a string which represents persian date in different controllbable formats and also smart reverse conversion from persian Shamsi to Georgian</summary>
     <releaseNotes>the time was not correctly converted in all functions when converted from and to dateTime</releaseNotes>
     <language>en-US</language>
