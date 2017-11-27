@@ -6,10 +6,10 @@ https://www.nuget.org/packages/PersianDate/
 
 PM> Install-Package PersianDate
 
-- it is a lightweight(17KB) Persian date convertor library written in C# and with Microsoft.NET 2.
+- it is a lightweight(17KB) Persian date convertor library written in C# and with Microsoft.Net 2.
 - it tries to detect, normalize  correct given persian date string , considering the default input is in yyyy/mm/dd (1393/07/18) format.
 - it uses the default System.Globalization.PersianCalendar class for all date conversions
-- most methods uses short names (ToFa or ToEn) and are static for fast invokation
+- most methods uses short names (ToFa or ToEn) and are static for fast invocation (converted to extension methods of datetime and datetime? and string when ported to .Net 3.5)
 
 ##USES
 
