@@ -22,3 +22,12 @@ C:\Users\Administrator\Source\Repos\PersianDate.NET\UsageSamples\bin\Debug\Persi
 C:\Users\Administrator\Source\Repos\PersianDate.NET\UsageSamples\bin\Debug\PersianDate.pdb
 C:\Users\Administrator\Source\Repos\PersianDate.NET\UsageSamples\obj\Debug\UsageSamples.exe
 C:\Users\Administrator\Source\Repos\PersianDate.NET\UsageSamples\obj\Debug\UsageSamples.pdb
+C:\Users\Iman\Source\Repos\PersianDate.NET\UsageSamples\bin\Debug\UsageSamples.exe.config
+C:\Users\Iman\Source\Repos\PersianDate.NET\UsageSamples\bin\Debug\UsageSamples.exe
+C:\Users\Iman\Source\Repos\PersianDate.NET\UsageSamples\bin\Debug\UsageSamples.pdb
+C:\Users\Iman\Source\Repos\PersianDate.NET\UsageSamples\bin\Debug\PersianDate.dll
+C:\Users\Iman\Source\Repos\PersianDate.NET\UsageSamples\bin\Debug\PersianDate.pdb
+C:\Users\Iman\Source\Repos\PersianDate.NET\UsageSamples\obj\Debug\UsageSamples.csprojResolveAssemblyReference.cache
+C:\Users\Iman\Source\Repos\PersianDate.NET\UsageSamples\obj\Debug\UsageSamples.csproj.CoreCompileInputs.cache
+C:\Users\Iman\Source\Repos\PersianDate.NET\UsageSamples\obj\Debug\UsageSamples.exe
+C:\Users\Iman\Source\Repos\PersianDate.NET\UsageSamples\obj\Debug\UsageSamples.pdb

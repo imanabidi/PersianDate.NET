@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs
+/PersianDate.Standard/obj
+/PersianDate.Standard/bin/Debug
+/Persiandate/obj/Release

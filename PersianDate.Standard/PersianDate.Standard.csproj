@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <RootNamespace>PersianDate.Standard</RootNamespace>
+    <AssemblyName>PersianDate.Standard</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="ShamsiDate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>
