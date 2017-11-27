@@ -25,12 +25,10 @@ in webpages or any other apps in UI side and want to:
 ##Formats and samples
 Note: all the given samples are in the simple usage console sample Project in the solution
 use ToFa and toEn static methods of PersianDate class like below:
-    
- string persianSampleDateString1 = "1393/08/01 21:53:26";
-DateTime datetime1 = persianSampleDateString1.ToEn();
-
-string persianSampleDateString1 = "1393/08/01 21:53:26";
-DateTime datetime1 = persianSampleDateString1.ToEn();
+    using PersianDate;   
+ 
+    string persianSampleDateString1 = "1393/08/01 21:53:26";
+    DateTime datetime1 = persianSampleDateString1.ToEn();
 
     //default format 
     datetime1.ToFa();//1393/08/01
