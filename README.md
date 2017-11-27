@@ -29,6 +29,9 @@ use ToFa and toEn static methods of PersianDate class like below:
  string persianSampleDateString1 = "1393/08/01 21:53:26";
 DateTime datetime1 = persianSampleDateString1.ToEn();
 
+string persianSampleDateString1 = "1393/08/01 21:53:26";
+DateTime datetime1 = persianSampleDateString1.ToEn();
+
     //default format 
     datetime1.ToFa();//1393/08/01
     //date only (short and D for Long)
@@ -50,7 +53,7 @@ DateTime datetime1 = persianSampleDateString1.ToEn();
     datetime1.ToFa("y");//1393 آبان
     datetime1.ToFa("Y");//1393 آبان
     //new standard formats : combine them as you wish
-    "### New standard formats ####");
+
     datetime1.ToFa("yy MMM");//93 آبان 
     datetime1.ToFa("yyyy/MM/dd ");//1393/08/01 
     datetime1.ToFa("yy-M-dd ");//93-8-01
@@ -59,7 +62,7 @@ DateTime datetime1 = persianSampleDateString1.ToEn();
     /////////part 2
     //testing convertion to DateTime from different styles of persian strings
     //also showing default standard and custom .NET DateTime format strings after convertion
-    "### ToEn test (testing convertion to DateTime from different styles of persian strings) ###");
+
 
     "1393/08/01 16:20".ToEn();//10/23/2014 4:20:00 PM
     "01/8/1393".ToEn().ToShortDateString();//10/23/2014
