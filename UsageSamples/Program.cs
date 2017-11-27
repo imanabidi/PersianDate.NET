@@ -42,15 +42,14 @@ namespace UsageSamples
             //testing convertion to DateTime from different styles of persian strings
             //also showing default standard and custom .NET DateTime format strings after convertion
             Debug.WriteLine("### ToEn test (testing convertion to DateTime from different styles of persian strings) ###");
-
-            Debug.WriteLine("1393/08/01 16:20".ToEn());//10/23/2014 4:20:00 PM
+	        //default format 
+			Debug.WriteLine("1393/08/01 16:20".ToEn());//10/23/2014 4:20:00 PM
             Debug.WriteLine("01/8/1393".ToEn().ToShortDateString());//10/23/2014
             Debug.WriteLine("1/8/1393".ToEn().ToLongDateString());//Thursday, October 23, 2014
             //https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings
             Debug.WriteLine("1-8-93".ToEn().ToString("d"));//10/23/2014 //Short date pattern 
             Debug.WriteLine("93-8-01".ToEn().ToString("U"));//Wednesday, October 22, 2014 8:30:00 PM //Universal full date/time pattern
             Debug.WriteLine("93-8-01".ToEn().ToString("y"));//October 2014 //Year month pattern
-
             Debug.WriteLine("93 8 01".ToEn().ToString("ddd d MMM yyyy"));//Thu 23 Oct 2014
             //extra spaces and different separators are handled 
             Debug.WriteLine("1_8_1393 ".ToEn().ToString("g"));//10/23/2014 12:00 AM

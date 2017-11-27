@@ -11,41 +11,41 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>
 
-DateTime.Now.ToFa();//1393/08/01
-
-DateTime.Now.ToFa("d");//93/08/01
-DateTime.Now.ToFa("D");//پنج شنبه, 01 آبان 1393
-
-DateTime.Now.ToFa("t");//21:53
-DateTime.Now.ToFa("T");//21:53:26
-
-DateTime.Now.ToFa("g");//93/08/01 21:53
-DateTime.Now.ToFa("G");//93/08/01 21:53:26
-
-DateTime.Now.ToFa("f");//پنج شنبه, 01 آبان 1393 21:53
-DateTime.Now.ToFa("F");//پنج شنبه, 01 آبان 1393 21:53:26
-
-DateTime.Now.ToFa("m");//آبان 1
-DateTime.Now.ToFa("M");//آبان 1
-
-DateTime.Now.ToFa("y");//1393 آبان
-DateTime.Now.ToFa("Y");//1393 آبان
-
-DateTime.Now.ToFa("yy MMM");//93 آبان 
-DateTime.Now.ToFa("yyyy/MM/dd ");//1393/8/9 
-DateTime.Now.ToFa("yy-M-d ");//93-8-09
-DateTime.Now.ToFa("ddd dd MMM yyyy");//جمعه 9 آبان 1393
-
-"1393/08/01 16:20".ToEn();//2014/10/23 16:20:00
-"01/8/1393".ToEn();//2014/10/23 00:00:00
-"1/8/1393".ToEn();//2014/10/23 00:00:00
-"1-8-93".ToEn();//2014/10/23 00:00:00
-"93-8-01".ToEn();//2014/10/23 00:00:00
-"93 8 01".ToEn();//2014/10/23 00:00:00
-
-"1_8_1393 ".ToEn();//2014/10/23 00:00:00
-" 1_8_1393 16:20".ToEn();//2014/10/23 16:20:00
-" 1.8.1393 16:20:48".ToEn();//2014/10/23 16:20:48</description>
+	string persianSampleDateString1 = "1393/08/01 21:53:26";
+	DateTime datetime1 = persianSampleDateString1.ToEn();
+	
+	datetime1.ToFa();//1393/08/01
+	datetime1.ToFa("d");//93/08/01
+	datetime1.ToFa("D");//پنج شنبه, 01 آبان 1393	
+	
+	datetime1.ToFa("g");//93/08/01 21:53
+	datetime1.ToFa("G");//93/08/01 21:53:26
+	
+	datetime1.ToFa("f");//پنج شنبه, 01 آبان 1393 ساعت 21:53
+	datetime1.ToFa("F");//پنج شنبه, 01 آبان 1393 ساعت 21:53:26	
+	
+	datetime1.ToFa("M");//اول آبان 
+	
+	datetime1.ToFa("y");//1393 آبان	
+	
+	datetime1.ToFa("yy MMM");//93 آبان 
+	datetime1.ToFa("yyyy/MM/dd ");//1393/08/01 
+	datetime1.ToFa("yy-M-dd ");//93-8-01
+	datetime1.ToFa("ddd d MMM yyyy");//جمعه 1 آبان 1393
+	datetime1.ToFa("ddd D MMM yyyy");//جمعه اول آبان 1393	
+	
+	//default format 
+	"1393/08/01 16:20".ToEn();//10/23/2014 4:20:00 PM
+	"01/8/1393".ToEn().ToShortDateString();//10/23/2014
+	"1/8/1393".ToEn().ToLongDateString();//Thursday, October 23, 2014	
+	"1-8-93".ToEn().ToString("d");//10/23/2014 
+	"93-8-01".ToEn().ToString("U");//Wednesday, October 22, 2014 8:30:00 PM 
+	"93-8-01".ToEn().ToString("y");//October 2014 
+	"93 8 01".ToEn().ToString("ddd d MMM yyyy");//Thu 23 Oct 2014	
+	"1_8_1393 ".ToEn().ToString("g");//10/23/2014 12:00 AM
+	" 1_8_1393 16:20".ToEn().ToString("f");//Thursday, October 23, 2014 4:20 PM
+	" 1.8.1393 16:20:48".ToEn().ToString("R");//Thu, 23 Oct 2014 16:20:48 GMT
+	</description>
         <summary>Convert System.Datetime to a string representing persian date like 1396/01/01 supporting many similar controllable standard date format (like MMM for آبان) and also smart reverse conversion from persi</summary>
         <releaseNotes>- Adding extension mthods for Datetime and Datetime?
 - Converting time in string back to georgian date</releaseNotes>
@@ -64,12 +64,10 @@ DateTime.Now.ToFa("ddd dd MMM yyyy");//جمعه 9 آبان 1393
         </frameworkAssemblies>
     </metadata>
     <files>
-        <file src="lib\MonoAndroid\PersianDate.dll" target="lib\MonoAndroid\PersianDate.dll" />
+        
         <file src="lib\net20\PersianDate.dll" target="lib\net20\PersianDate.dll" />
-        <file src="lib\net35\PersianDate.dll" target="lib\net35\PersianDate.dll" />
-        <file src="lib\net35-client\PersianDate.dll" target="lib\net35-client\PersianDate.dll" />
-        <file src="lib\netstandard1.3\PersianDate.Standard.dll" target="lib\netstandard1.3\PersianDate.Standard.dll" />        
-        <file src="lib\sl2\PersianDate.dll" target="lib\sl2\PersianDate.dll" />
-        <file src="lib\PersianDate.README.md" target="lib\PersianDate.README.md" />
+        <file src="lib\net35\PersianDate.dll" target="lib\net35\PersianDate.dll" />        
+        <file src="lib\netstandard1.3\PersianDate.Standard.dll" target="lib\netstandard1.3\PersianDate.Standard.dll" />
+		<file src="lib\PersianDate.README.md" target="lib\PersianDate.README.md" />
     </files>
 </package>

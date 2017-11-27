@@ -3,7 +3,6 @@
 
 namespace PersianDate
 {
-
     /// <summary>
     /// only cary values from  PersianCalendar methods with added value to use in custom areas
     /// </summary>
