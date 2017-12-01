@@ -85,18 +85,19 @@ namespace PersianDate.Standard
 			//new simple method which emcompass below methods too
 			try
 			{
-				pYear = int.Parse(rawValues[0].TrimStart(new[] { '0' }).Trim());
-				pMonth = int.Parse(rawValues[1].TrimStart(new[] { '0' }).Trim());
-				pDay = int.Parse(rawValues[2].TrimStart(new[] { '0' }).Trim());
+				//pYear = int.Parse(rawValues[0].TrimStart(new[] { '0' })); // all spaces and zeros are ignored
+				pYear = int.Parse(rawValues[0]); // 
+				pMonth = int.Parse(rawValues[1]);
+				pDay = int.Parse(rawValues[2]);
 
 				if (rawValues.Length >= 4)
-					pHour = int.Parse(rawValues[3].TrimStart(new[] { '0' }).Trim());
+					pHour = int.Parse(rawValues[3]); //for hour we may have also zero
 				if (rawValues.Length >= 5)
-					pMins = int.Parse(rawValues[4].TrimStart(new[] { '0' }).Trim());
+					pMins = int.Parse(rawValues[4]);
 				if (rawValues.Length >= 6)
-					pSeconds = int.Parse(rawValues[5].TrimStart(new[] { '0' }).Trim());
+					pSeconds = int.Parse(rawValues[5]);
 				if (rawValues.Length >= 7)
-					pMilliSeconds = int.Parse(rawValues[6].TrimStart(new[] { '0' }).Trim());
+					pMilliSeconds = int.Parse(rawValues[6]);
 
 				// the year usually must be larger than 90
 				//or for historic values rarely lower than 33 if 2 digit is given
@@ -300,6 +301,27 @@ namespace PersianDate.Standard
 		}
 
 		/// <summary>
+		/// deprecated
+		/// </summary>
+		/// <param name="dateTime"></param>
+		/// <param name="format"></param>
+		/// <returns></returns>
+		public static string ToFaWithTime(this DateTime? dateTime)
+		{
+			return !dateTime.HasValue ? string.Empty : dateTime.Value.ToFa("f");
+		}
+		/// <summary>
+		/// deprecated
+		/// </summary>
+		/// <param name="dateTime"></param>
+		/// <param name="format"></param>
+		/// <returns></returns>
+		public static string ToFaWithTime(this DateTime dateTime)
+		{
+			return dateTime.ToFa("f");
+		}
+
+		/// <summary>
 		/// nice method from persian calendar project by Nickmehr
 		/// </summary>
 		/// <param name="dateTime"></param>
@@ -323,8 +345,8 @@ namespace PersianDate.Standard
 					case "T":
 						return sd.LongTime;
 
-					case "f": //Long date + short time
-						return string.Format("{0} ساعت {1}", sd.LongDate, sd.ShortTime);
+					case "f": //short date + short time
+						return string.Format("{0} {1}", sd.ShortDate, sd.ShortTime);
 					case "F": // Long date + long time //یکشنبه, 27 مهر 1393 01:15:43
 						return string.Format("{0} ساعت {1}", sd.LongDate, sd.LongTime);
 
@@ -352,11 +374,11 @@ namespace PersianDate.Standard
 			return format.Replace("YY", "yy") // because year is not case sensetive
 						 .Replace("yyyy", sd.Saal.ToString(CultureInfo.InvariantCulture))
 						 .Replace("yy", sd.Saal.ToString(CultureInfo.InvariantCulture).Substring(2, 2))
-						 .Replace("MMM", sd.MahName.ToString())
+						 .Replace("MMM", sd.MahName)
 						 .Replace("MM", sd.Mah.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'))
 						 .Replace("M", sd.Mah.ToString(CultureInfo.InvariantCulture))
-						 .Replace("D", ShamsiDays[sd.RoozeMah - 1]?.ToString())
-						 .Replace("ddd", sd.RoozeHaftehName.ToString())
+						 .Replace("D", ShamsiDays[sd.RoozeMah - 1])
+						 .Replace("ddd", sd.RoozeHaftehName)
 						 .Replace("dd", sd.RoozeMah.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'))
 						 .Replace("d", sd.RoozeMah.ToString(CultureInfo.InvariantCulture))
 						 .Replace("hh", sd.Saat.ToString(CultureInfo.InvariantCulture))

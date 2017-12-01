@@ -1,9 +1,0 @@
-C:\Users\Iman\Source\Repos\PersianDate.NET\UsageSamples\bin\Release\UsageSamples.exe.config
-C:\Users\Iman\Source\Repos\PersianDate.NET\UsageSamples\bin\Release\UsageSamples.exe
-C:\Users\Iman\Source\Repos\PersianDate.NET\UsageSamples\bin\Release\UsageSamples.pdb
-C:\Users\Iman\Source\Repos\PersianDate.NET\UsageSamples\bin\Release\PersianDate.dll
-C:\Users\Iman\Source\Repos\PersianDate.NET\UsageSamples\bin\Release\PersianDate.pdb
-C:\Users\Iman\Source\Repos\PersianDate.NET\UsageSamples\obj\Release\UsageSamples.csprojResolveAssemblyReference.cache
-C:\Users\Iman\Source\Repos\PersianDate.NET\UsageSamples\obj\Release\UsageSamples.csproj.CoreCompileInputs.cache
-C:\Users\Iman\Source\Repos\PersianDate.NET\UsageSamples\obj\Release\UsageSamples.exe
-C:\Users\Iman\Source\Repos\PersianDate.NET\UsageSamples\obj\Release\UsageSamples.pdb

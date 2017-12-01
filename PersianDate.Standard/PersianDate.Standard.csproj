@@ -14,6 +14,8 @@
     <RepositoryType>Git</RepositoryType>
     <Copyright>2017</Copyright>
     <Description>Convert System.Datetime to a string representing persian date like 1396/01/01 supporting many similar controllable standard date format (like MMM for آبان) and also smart reverse conversion from persian to Georgian</Description>
+    <AssemblyVersion>3.5.2</AssemblyVersion>
+    <FileVersion>3.5.2</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

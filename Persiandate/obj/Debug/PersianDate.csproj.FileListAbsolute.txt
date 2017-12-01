@@ -20,3 +20,4 @@ C:\Users\Iman\Source\Repos\PersianDate.NET\Persiandate\bin\Debug\PersianDate.pdb
 C:\Users\Iman\Source\Repos\PersianDate.NET\Persiandate\obj\Debug\PersianDate.csproj.CoreCompileInputs.cache
 C:\Users\Iman\Source\Repos\PersianDate.NET\Persiandate\obj\Debug\PersianDate.dll
 C:\Users\Iman\Source\Repos\PersianDate.NET\Persiandate\obj\Debug\PersianDate.pdb
+C:\Users\Iman\Source\Repos\PersianDate.NET\Persiandate\obj\Debug\PersianDate.csprojResolveAssemblyReference.cache
