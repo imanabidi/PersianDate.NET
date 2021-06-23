@@ -5,13 +5,13 @@ install using nuget https://www.nuget.org/packages/PersianDate/
 >**Install-Package PersianDate**
 
 - it is a lightweight(17KB) Persian date convertor library written in C# and with Microsoft.Net 2.
-- it tries to detect, normalize  correct given persian date string , considering the default input is in yyyy/mm/dd (1393/07/18) format.
+- it tries to detect, normalize & correct given persian date string , considering the default input is in yyyy/mm/dd (1393/07/18) format.
 - it uses the default System.Globalization.PersianCalendar class for all date conversions
-- most methods uses short names (ToFa or ToEn) and are static for fast invocation (converted to extension methods of datetime and datetime? and string when ported to .Net 3.5)
+- most methods uses short names (ToFa or ToEn) and are static(can be imported as extension methods of datetime and datetime? and string)
 
 # USES
 
-when you usually use a jquery persian date picker like:
+where you usually use a jquery persian date picker like:
 - http://hasheminezhad.com/datepicker 
 - https://github.com/behzadi/persianDatepicker
 - http://babakhani.github.io/PersianWebToolkit/datepicker.html
