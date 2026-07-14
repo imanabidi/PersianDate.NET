@@ -158,4 +158,6 @@ DateAndTimeH.MandehFa(someFutureDate);      // e.g. "3 روز  2 ساعت"
 
 ## License
 
-See the repository for license details.
+Released under the [MIT License](LICENSE) — free for all use. You may use, copy,
+modify, merge, publish, distribute, sublicense, and sell copies of the software
+for any purpose, including commercially.
