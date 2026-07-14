@@ -4,12 +4,12 @@
 namespace PersianDate
 {
     /// <summary>
-    /// only cary values from  PersianCalendar methods with added value to use in custom areas
+    /// only carry values from  PersianCalendar methods with added value to use in custom areas
     /// </summary>
     internal class ShamsiDate
     {
         /// <summary>
-        /// this constructor uses PersianCalendar and store its method returned values in a more friendler structor 
+        /// this constructor uses PersianCalendar and stores its method returned values in a more friendlier struct 
         /// and properties of this class
         /// </summary>
         /// <param name="date"></param>
