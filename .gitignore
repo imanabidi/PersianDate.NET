@@ -186,3 +186,5 @@ FakesAssemblies/
 .vs/
 project.lock.json
 .vscode/
+/Persiandate/bin/*
+/Persiandate/bin/*
