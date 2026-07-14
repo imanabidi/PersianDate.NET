@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-//using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace PersianDate
@@ -55,17 +54,16 @@ namespace PersianDate
                 faDate2 = String.Format("{0}/{1,2:D2}/01", farsiyear + 1, 1);
         }
 
-
-         
-
         public static List<int> GetAllFarsiYearsFromMinDate()
         {
             return GetAllFarsiYearsFromMinDate(MinStartDate);
         }
+        
         public static List<int> GetAllFarsiYearsFromMinDate(DateTime minDate)
         {
             return GetAllFarsiYearsFromMinDate(minDate, DateTime.UtcNow);
         }
+        
         public static List<int> GetAllFarsiYearsFromMinDate(DateTime minDate, DateTime endDate)
         {
             List<int> ht = new List<int>();
@@ -78,7 +76,6 @@ namespace PersianDate
 
             return ht;
         }
-
 
         /// <summary>
         /// return only the year, used for example in the footer and copyright in one shot
@@ -100,11 +97,7 @@ namespace PersianDate
             return ConvertDate.ToShamsiDate(dateTime).Mah;
         }
 
-
-
-        /// <summary>
-        /// روزه ماه
-        /// </summary>
+        /// <summary>  روزه ماه </summary>
         /// <param name="dateTime"></param>
         /// <returns></returns>
         public static int RoozNum(DateTime dateTime)
@@ -132,7 +125,7 @@ namespace PersianDate
 
         #region Mandeha
         /// <summary>
-        /// be rooz va saat va daghighe
+        /// In day and hour and minutes
         /// </summary>
         /// <param name="spanMandeh"></param>
         /// <returns></returns>
@@ -181,8 +174,6 @@ namespace PersianDate
         #endregion
 
 
-
-
         #region Static properties
         /// <summary>
         /// start of day with zero time (rounded time)
@@ -203,7 +194,6 @@ namespace PersianDate
 
                 return pc.ToDateTime(y, m, 1, 0, 0, 0, 0, 0);
             }
-
         }
         
         #endregion
@@ -237,12 +227,5 @@ namespace PersianDate
 
             return shamsi.Saal;
         }
-
-
-
-
-
     }
-
-
 }

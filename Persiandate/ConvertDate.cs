@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-//using System.Linq;
-using System.Text;
-using PersianDate;
 
 namespace PersianDate
 {
@@ -22,6 +18,7 @@ namespace PersianDate
             , "یازدهم"  , "دوازدهم"  , "سیزدهم"  , "چهاردهم"  , "پانزدهم"  , "شانزدهم"  , "هفدهم"  , "هجدهم"  , "نوزدهم"  , "بیستم"
             , "بیست و یکم"  , "بیست و دوم" , "بیست و سوم" , "بیست و چهارم" , "بیست و پنجم" , "بیست و ششم" , "بیست و هفتم", "بیست و هشتم" , "بیست و نهم" , "سی ام" , "سی و یکم"
         };
+        
         /// <summary>
         /// usually to convert the persian calendar output text and any format starting with 4 digit farsi year
         /// </summary>
@@ -38,7 +35,7 @@ namespace PersianDate
 
 
         /// <summary>
-        /// get persian date and convert to georgian or miladi date
+        /// get persian date and convert to georogirian date
         /// </summary>
         /// <param name="y">shamsi year like 1392</param>
         /// <param name="m">shamsi month number like 1 </param>
@@ -53,7 +50,7 @@ namespace PersianDate
         }
 
         /// <summary>
-        /// simpler and more powerfull and returns ShamsiDate
+        /// simpler and more powerful and returns Shamsi Date
         /// </summary>
         /// <param name="farsiDate"></param>
         /// <returns></returns>
@@ -82,7 +79,7 @@ namespace PersianDate
             {
                 // detect year side and add slashes in right places and continue
             }
-            //new simple method which emcompass below methods too
+            //new simple method which encompass below methods too
             try
             {
 				//pYear = int.Parse(rawValues[0].TrimStart(new[] { '0' })); // all spaces and zeros are ignored
@@ -163,8 +160,6 @@ namespace PersianDate
             //todo: ()not very usual handle if date is given in very short format like 93/3/16
 
             #endregion
-
-
 
             int.TryParse(farsiDate.Substring(0, 4), out year);
             if (year == 0)
@@ -310,6 +305,7 @@ namespace PersianDate
 	    {
 		    return !dateTime.HasValue ? string.Empty : dateTime.Value.ToFa("f");
 	    }
+        
 	    /// <summary>
 	    /// deprecated
 	    /// </summary>
@@ -372,8 +368,8 @@ namespace PersianDate
                         return sd.ShortDate;
                 }
             }
-            //important: first replace longer occurances
-            return format.Replace("YY", "yy") // because year is not case sensetive
+            //important: first replace longer occurrences
+            return format.Replace("YY", "yy") // because year is not case-sensitive
                          .Replace("yyyy", sd.Saal.ToString(CultureInfo.InvariantCulture))
                          .Replace("yy", sd.Saal.ToString(CultureInfo.InvariantCulture).Substring(2, 2))
                          .Replace("MMM", sd.MahName.ToString(CultureInfo.InvariantCulture))

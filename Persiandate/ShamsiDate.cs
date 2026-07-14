@@ -8,7 +8,6 @@ namespace PersianDate
     /// </summary>
     internal class ShamsiDate
     {
-
         /// <summary>
         /// this constructor uses PersianCalendar and store its method returned values in a more friendler structor 
         /// and properties of this class
@@ -46,7 +45,6 @@ namespace PersianDate
 
             RoozeHafteh = ConvertDate.MapWeekDayToNum(pDate.GetDayOfWeek(EquivalentGoergianDate));
         }
-
 
         #region properties
 
